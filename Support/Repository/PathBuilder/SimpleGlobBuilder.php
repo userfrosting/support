@@ -4,14 +4,19 @@
  *
  * @link      https://github.com/userfrosting/support
  */
-namespace UserFrosting\Support\Repository;
+namespace UserFrosting\Support\Repository\PathBuilder;
 
-class SimpleGlobLoader extends RepositoryLoaderFileSystem
+/**
+ * An example builder class that simply globs together all PHP files in each search path.
+ */
+class SimpleGlobBuilder extends PathBuilder
 {
     /**
      * Glob together all file paths in each search path from the locator.
+     *
+     * @return array
      */
-    protected function buildPathsFromLocator()
+    public function buildPaths()
     {
         // Get all paths from the locator that match the uri.
         // Put them in reverse order to allow later files to override earlier files.
@@ -23,16 +28,6 @@ class SimpleGlobLoader extends RepositoryLoaderFileSystem
             $filePaths = array_merge($filePaths, $globs);
         }
 
-        $this->setPaths($filePaths);
-    }
-
-    /**
-     * Basic example; loads content from a file that returns a PHP array.
-     *
-     * @return array
-     */
-    protected function parseFile($path)
-    {
-        return require $path;
+        return $filePaths;
     }
 }

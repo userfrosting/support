@@ -2,10 +2,9 @@
 
 use PHPUnit\Framework\TestCase;
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
-use UserFrosting\Support\Repository\Repository;
-use UserFrosting\Support\Repository\SimpleGlobLoader;
+use UserFrosting\Support\Repository\PathBuilder\SimpleGlobBuilder;
 
-class RepositoryLoaderTest extends TestCase
+class PathBuilderTest extends TestCase
 {
     protected $basePath;
 
@@ -25,10 +24,10 @@ class RepositoryLoaderTest extends TestCase
     public function testGlobBuildPaths()
     {
         // Arrange
-        $loader = new SimpleGlobLoader($this->locator, 'owls://');
+        $builder = new SimpleGlobBuilder($this->locator, 'owls://');
         
         // Act
-        $paths = $loader->getPaths();
+        $paths = $builder->buildPaths();
 
         // Assert
         $this->assertEquals($paths, [
@@ -36,24 +35,6 @@ class RepositoryLoaderTest extends TestCase
             $this->basePath . '/core/owls/tyto.php',
             $this->basePath . '/account/owls/megascops.php',
             $this->basePath . '/admin/owls/megascops.php'
-        ]);
-    }
-
-    public function testGlobLoadRepo()
-    {
-        // Arrange
-        $loader = new SimpleGlobLoader($this->locator, 'owls://');
-
-        // Act
-        $data = $loader->load();
-
-        $this->assertEquals($data, [
-            'voles' => [
-                'caught' => 8,
-                'devoured' => 8
-            ],
-            'plumage' => 'floofy',
-            'chicks' => 4
         ]);
     }
 }

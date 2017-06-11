@@ -4,12 +4,14 @@
  *
  * @link      https://github.com/userfrosting/support
  */
-namespace UserFrosting\Support\Repository;
+namespace UserFrosting\Support\Repository\Loader;
 
-use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 use UserFrosting\Support\Exception\FileNotFoundException;
 
-abstract class RepositoryLoaderFileSystem
+/**
+ * Loads repository data from a list of file paths.
+ */
+abstract class FileRepositoryLoader
 {
     /**
      * @var array An array of paths to ultimately load the data from.
@@ -17,31 +19,13 @@ abstract class RepositoryLoaderFileSystem
     protected $paths = [];
 
     /**
-     * @var UniformResourceLocator Locator service to use when searching for files.
-     */
-    protected $locator;
-
-    /**
-     * @var string Virtual path to search in the locator.
-     */
-    protected $uri;
-
-    /**
      * Create the loader.
-     * @param RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator $locator
+     * @param string[] $paths
      */
-    public function __construct($locator, $uri)
+    public function __construct($paths)
     {
-        $this->locator = $locator;
-        $this->uri = $uri;
-
-        $this->buildPathsFromLocator();
+        $this->paths = $paths;
     }
-
-    /**
-     * Build out the ordered list of file paths, using the designated locator and uri for this loader.
-     */
-    abstract protected function buildPathsFromLocator();
 
     /**
      * Fetch content from a single file path.
