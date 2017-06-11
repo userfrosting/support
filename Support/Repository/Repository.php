@@ -5,7 +5,7 @@
  * @link      https://github.com/userfrosting/fortress
  * @license   https://github.com/userfrosting/fortress/blob/master/licenses/UserFrosting.md (MIT License)
  */
-namespace UserFrosting\Support;
+namespace UserFrosting\Support\Repository;
 
 use Illuminate\Config\Repository as IlluminateRepository;
 
@@ -31,5 +31,6 @@ class Repository extends IlluminateRepository
         }
 
         array_set($this->items, $key, $modifiedValues);
+        return $this;
     }
 }
