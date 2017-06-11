@@ -16,7 +16,7 @@ class SimpleGlobBuilder extends PathBuilder
      *
      * @return array
      */
-    public function buildPaths()
+    public function buildPaths($extension = 'php')
     {
         // Get all paths from the locator that match the uri.
         // Put them in reverse order to allow later files to override earlier files.
@@ -24,7 +24,7 @@ class SimpleGlobBuilder extends PathBuilder
 
         $filePaths = [];
         foreach ($searchPaths as $path) {
-            $globs = glob(rtrim($path, '/\\') . '/*.php');
+            $globs = glob(rtrim($path, '/\\') . '/*.' . $extension);
             $filePaths = array_merge($filePaths, $globs);
         }
 

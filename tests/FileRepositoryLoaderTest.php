@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 use UserFrosting\Support\Repository\Loader\ArrayFileLoader;
+use UserFrosting\Support\Repository\Loader\YamlFileLoader;
 use UserFrosting\Support\Repository\PathBuilder\SimpleGlobBuilder;
 
 class FileRepositoryLoaderTest extends TestCase
@@ -10,6 +11,15 @@ class FileRepositoryLoaderTest extends TestCase
     protected $basePath;
 
     protected $locator;
+
+    protected $targetData = [
+        'voles' => [
+            'caught' => 8,
+            'devoured' => 8
+        ],
+        'plumage' => 'floofy',
+        'chicks' => 4
+    ];
 
     public function setUp()
     {
@@ -22,7 +32,7 @@ class FileRepositoryLoaderTest extends TestCase
         $this->locator->addPath('owls', '', 'admin/owls');
     }
 
-    public function testGlobLoadRepo()
+    public function testGlobLoadArrays()
     {
         // Arrange
         $builder = new SimpleGlobBuilder($this->locator, 'owls://');
@@ -31,13 +41,18 @@ class FileRepositoryLoaderTest extends TestCase
         // Act
         $data = $loader->load();
 
-        $this->assertEquals($data, [
-            'voles' => [
-                'caught' => 8,
-                'devoured' => 8
-            ],
-            'plumage' => 'floofy',
-            'chicks' => 4
-        ]);
+        $this->assertEquals($data, $this->targetData);
+    }
+
+    public function testGlobLoadYaml()
+    {
+        // Arrange
+        $builder = new SimpleGlobBuilder($this->locator, 'owls://');
+        $loader = new YamlFileLoader($builder->buildPaths('yaml'));
+
+        // Act
+        $data = $loader->load();
+
+        $this->assertEquals($data, $this->targetData);
     }
 }
