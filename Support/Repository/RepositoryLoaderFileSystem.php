@@ -78,7 +78,7 @@ abstract class RepositoryLoaderFileSystem
      */
     public function loadFile($path, $skipMissing = true)
     {
-        if (!file_exists($fileWithPath)) {
+        if (!file_exists($path)) {
             if ($skipMissing) {
                 return [];
             } else {
