@@ -20,11 +20,11 @@ abstract class FileRepositoryLoader
 
     /**
      * Create the loader.
-     * @param string[] $paths
+     * @param string|string[] $paths
      */
     public function __construct($paths)
     {
-        $this->paths = $paths;
+        $this->setPaths($paths);
     }
 
     /**
