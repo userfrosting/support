@@ -13,6 +13,8 @@ use UserFrosting\Support\Exception\JsonException;
 
 /**
  * Load content from yaml/json files.
+ *
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
 class YamlFileLoader extends FileRepositoryLoader
 {

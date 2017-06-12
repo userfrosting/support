@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 use UserFrosting\Support\Repository\PathBuilder\SimpleGlobBuilder;
+use UserFrosting\Support\Repository\PathBuilder\StreamPathBuilder;
 
 class PathBuilderTest extends TestCase
 {
@@ -36,5 +37,22 @@ class PathBuilderTest extends TestCase
             $this->basePath . '/account/owls/megascops.php',
             $this->basePath . '/admin/owls/megascops.php'
         ]);
+    }
+
+
+    public function testBuildPathsToFile()
+    {
+        // Arrange
+        $builder = new StreamPathBuilder($this->locator, 'owls://megascops.php');
+        
+        // Act
+        $paths = $builder->buildPaths();
+
+        // Assert
+        $this->assertEquals([
+            $this->basePath . '/core/owls/megascops.php',
+            $this->basePath . '/account/owls/megascops.php',
+            $this->basePath . '/admin/owls/megascops.php'
+        ], $paths);
     }
 }

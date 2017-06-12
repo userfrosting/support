@@ -8,6 +8,11 @@ namespace UserFrosting\Support\Repository\PathBuilder;
 
 use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 
+/**
+ * Base PathBuilder class
+ *
+ * @author Alexander Weissman (https://alexanderweissman.com)
+ */
 abstract class PathBuilder
 {
     /**

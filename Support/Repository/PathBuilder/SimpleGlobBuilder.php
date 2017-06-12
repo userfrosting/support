@@ -8,6 +8,8 @@ namespace UserFrosting\Support\Repository\PathBuilder;
 
 /**
  * An example builder class that simply globs together all PHP files in each search path.
+ *
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
 class SimpleGlobBuilder extends PathBuilder
 {

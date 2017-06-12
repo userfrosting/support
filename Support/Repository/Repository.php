@@ -9,10 +9,17 @@ namespace UserFrosting\Support\Repository;
 
 use Illuminate\Config\Repository as IlluminateRepository;
 
+/**
+ * Repository Class
+ *
+ * Represents an extendable repository of key->value mappings.
+ *
+ * @author Alexander Weissman (https://alexanderweissman.com)
+ */
 class Repository extends IlluminateRepository
 {
     /**
-     * Recursively merge locale values (scalar or array) into this repository.
+     * Recursively merge values (scalar or array) into this repository.
      *
      * If no key is specified, the items will be merged in starting from the top level of the array.
      * If a key IS specified, items will be merged into that key.

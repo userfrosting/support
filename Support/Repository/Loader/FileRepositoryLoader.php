@@ -10,6 +10,8 @@ use UserFrosting\Support\Exception\FileNotFoundException;
 
 /**
  * Loads repository data from a list of file paths.
+ *
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
 abstract class FileRepositoryLoader
 {
@@ -103,7 +105,7 @@ abstract class FileRepositoryLoader
     /**
      * Set the internal array of file paths.
      *
-     * @param array $paths
+     * @param string|string[] $paths
      */
     public function setPaths($paths)
     {
