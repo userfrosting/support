@@ -8,6 +8,7 @@
 namespace UserFrosting\Support\Repository;
 
 use Illuminate\Config\Repository as IlluminateRepository;
+use UserFrosting\Support\Util\Util;
 
 /**
  * Repository Class
@@ -39,5 +40,23 @@ class Repository extends IlluminateRepository
 
         array_set($this->items, $key, $modifiedValues);
         return $this;
+    }
+
+    /**
+     * Get the specified configuration value, recursively removing all null values.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function getDefined($key = null)
+    {
+        $result = $this->get($key);
+        if (!is_array($result)) {
+            return $result;
+        }
+
+        return Util::arrayFilterRecursive($result, function ($value) {
+            return !is_null($value);
+        });
     }
 }
