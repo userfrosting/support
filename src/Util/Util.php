@@ -95,6 +95,31 @@ class Util
     }
 
     /**
+     * Determine if a given string matches one or more regular expressions.
+     *
+     * @param string|array  $patterns
+     * @param string  $subject
+     * @param array  &$matches
+     * @param string $delimiter
+     * @param int $flags
+     * @param int $offset
+     * @return bool
+     */
+    public static function stringMatches($patterns, $subject, array &$matches = null, $delimiter = '~', $flags = 0, $offset = 0)
+    {
+        $matches = [];
+        $result = false;
+        foreach ((array) $patterns as $pattern) {
+            $currMatches = [];
+            if ($pattern != '' && preg_match($delimiter . $pattern . $delimiter, $subject, $currMatches, $flags, $offset)) {
+                $result = true;
+                $matches[$pattern] = $currMatches;
+            }
+        }
+        return $result;
+    }
+
+    /**
      * Recursively apply a callback to members of an array.
      *
      * @param array $input
