@@ -4,7 +4,7 @@
  *
  * @package   userfrosting/support
  * @link      https://github.com/userfrosting/support
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/licenses/UserFrosting.md (MIT License)
+ * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
  */
 namespace UserFrosting\Support\Util;
 

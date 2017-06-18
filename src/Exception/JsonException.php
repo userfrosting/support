@@ -1,15 +1,19 @@
 <?php
 /**
+ * UserFrosting (http://www.userfrosting.com)
+ *
+ * @link      https://github.com/userfrosting/support
+ * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ */
+namespace UserFrosting\Support\Exception;
+
+ /**
  * JsonException
  *
  * This exception should be thrown when there was a problem processing a JSON document.
  *
- * @link      https://github.com/userfrosting/UserFrosting
- * @author    Alexander Weissman
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/licenses/UserFrosting.md (MIT License)
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
-namespace UserFrosting\Support\Exception;
-
 class JsonException extends \RuntimeException
 {
 

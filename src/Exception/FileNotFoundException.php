@@ -1,15 +1,19 @@
 <?php
 /**
+ * UserFrosting (http://www.userfrosting.com)
+ *
+ * @link      https://github.com/userfrosting/support
+ * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ */
+namespace UserFrosting\Support\Exception;
+
+/**
  * FileNotFoundException
  *
  * This exception should be thrown when a requested file could not be found.
  *
- * @link      https://github.com/userfrosting/UserFrosting
- * @author    Alexander Weissman
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/licenses/UserFrosting.md (MIT License)
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
-namespace UserFrosting\Support\Exception;
-
 class FileNotFoundException extends \RuntimeException
 {
 

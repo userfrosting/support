@@ -1,26 +1,28 @@
 <?php
+/**
+ * UserFrosting (http://www.userfrosting.com)
+ *
+ * @link      https://github.com/userfrosting/support
+ * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ */
+namespace UserFrosting\Support\Exception;
 
 /**
  * ForbiddenException
  *
  * This exception should be thrown when a user has attempted to perform an unauthorized action.
  *
- * @link      https://github.com/userfrosting/UserFrosting
- * @author    Alexander Weissman
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/licenses/UserFrosting.md (MIT License)
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
-namespace UserFrosting\Support\Exception;
-
 class ForbiddenException extends HttpException
 {
-
     /**
-     * @var integer Default HTTP error code associated with this exception.
+     * {@inheritDoc}
      */
-    protected $http_error_code = 403;
+    protected $httpErrorCode = 403;
     
     /**
-     * @var string Default user-viewable error message associated with this exception.
-     */        
-    protected $default_message = "ACCESS_DENIED";
+     * {@inheritDoc}
+     */     
+    protected $defaultMessage = "ACCESS_DENIED";
 }

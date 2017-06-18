@@ -1,4 +1,11 @@
 <?php
+/**
+ * UserFrosting (http://www.userfrosting.com)
+ *
+ * @link      https://github.com/userfrosting/support
+ * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ */
+namespace UserFrosting\Support\Message;
 
 /**
  * UserMessage
@@ -6,12 +13,8 @@
  * A user-viewable message, consisting of a message string or message token, and zero or more parameters for the message.
  * Parameters can be used, for example, to fill in placeholders in dynamically generated messages.
  *
- * @link      https://github.com/userfrosting/UserFrosting
- * @author    Alexander Weissman
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/licenses/UserFrosting.md (MIT License)
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
-namespace UserFrosting\Support\Message;
-
 class UserMessage
 {
 
@@ -36,5 +39,4 @@ class UserMessage
         $this->message = $message;
         $this->parameters = $parameters;
     }
-
 }

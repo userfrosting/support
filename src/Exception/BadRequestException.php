@@ -1,26 +1,28 @@
 <?php
+/**
+ * UserFrosting (http://www.userfrosting.com)
+ *
+ * @link      https://github.com/userfrosting/support
+ * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ */
+namespace UserFrosting\Support\Exception;
 
 /**
  * BadRequestException
  *
  * This exception should be thrown when a user has submitted an ill-formed request, or other incorrect data.
  *
- * @link      https://github.com/userfrosting/UserFrosting
- * @author    Alexander Weissman
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/licenses/UserFrosting.md (MIT License)
+ * @author Alexander Weissman (https://alexanderweissman.com)
  */
-namespace UserFrosting\Support\Exception;
-
 class BadRequestException extends HttpException
 {
+    /**
+     * {@inheritDoc}
+     */
+    protected $httpErrorCode = 400;
 
     /**
-     * @var integer Default HTTP error code associated with this exception.
+     * {@inheritDoc}
      */
-    protected $http_error_code = 400;
-    
-    /**
-     * @var string Default user-viewable error message associated with this exception.
-     */    
-    protected $default_message = "NO_DATA";
+    protected $defaultMessage = "NO_DATA";
 }
