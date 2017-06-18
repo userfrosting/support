@@ -18,7 +18,7 @@ class UtilTest extends TestCase
 
         $matches = [];
         $this->assertTrue(Util::stringMatches($patterns, $str, $matches));
-        print_r($matches);
+
         $this->assertEquals([
             '^assets-raw' => [
                 'assets-raw'
