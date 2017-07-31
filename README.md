@@ -12,6 +12,7 @@ This module contains support classes for UserFrosting and related modules.
 - HttpException
   - BadRequestException
   - ForbiddenException
+  - NotFoundException
 
 ### HttpException
 
