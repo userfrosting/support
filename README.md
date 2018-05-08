@@ -16,7 +16,7 @@ This module contains support classes for UserFrosting and related modules.
 
 ### HttpException
 
-A large portion of UserFrosting's exception types inherit from the `HttpException` class. 
+A large portion of UserFrosting's exception types inherit from the `HttpException` class.
 
 The `HttpException` class acts like a typical exception, but it maintains two additional parameters internally: a list of messages (`UserMessage`) that the exception handler may display to the client, and a status code that should be returned with the response.  As a simple example, consider the `BadRequestException`:
 
@@ -82,35 +82,35 @@ As an example, consider the `YamlFileLoader` implementation that loads two schem
 ```yaml
 # core/schema/contact.yaml
 
-name: 
-    validators: 
-        length: 
+name:
+    validators:
+        length:
             min: 1
             max: 200
             message: Please enter a name between 1 and 200 characters.
-        required : 
+        required :
             message : Please specify your name.
 
-email: 
-    validators: 
-        length: 
+email:
+    validators:
+        length:
             min: 1
             max: 150
             message: Please enter an email address between 1 and 150 characters.
 
-        email: 
+        email:
             message : That does not appear to be a valid email address.
 
 # account/schema/contact.yaml
 
-email: 
-    validators: 
-        required: 
+email:
+    validators:
+        required:
             message: Please specify your email address.
 
-message: 
-    validators: 
-        required: 
+message:
+    validators:
+        required:
             message: Please enter a message
 ```
 
@@ -143,6 +143,12 @@ $paths = $builder->buildPaths();
 ```
 
 You can define other `PathBuilder` classes to customize the way this list of paths is constructed.  Simply implement the `buildPaths` method, returning an array of generated paths in the order in which they should be loaded by a `Loader` class.
+
+## DotenvEditor
+
+The `DotenvEditor` class provides an implementation of [JackieDo Laravel-Dotenv-Editor package ](https://github.com/JackieDo/Laravel-Dotenv-Editor) for UserFrosting. This can be used to read and write the .env configuration file (or files with same structure and syntax).
+
+For complete usage of `DotenvEditor` class, see [](https://github.com/JackieDo/Laravel-Dotenv-Editor#reading-file-content).
 
 ## Testing
 

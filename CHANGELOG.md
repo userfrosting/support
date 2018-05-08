@@ -1,5 +1,8 @@
 # Change Log
 
+## Unreleased
+- Implement `DotenvEditor` class
+
 ## v4.1.1
 - Implement `NotFoundException`
 
