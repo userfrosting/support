@@ -1,5 +1,8 @@
 # Support module for UserFrosting 4.1
 
+[![Build Status](https://travis-ci.org/userfrosting/support.svg?branch=master)](https://travis-ci.org/userfrosting/support)
+[![Join the chat at https://chat.userfrosting.com/channel/support](https://demo.rocket.chat/images/join-chat.svg)](https://chat.userfrosting.com/channel/support)
+
 This module contains support classes for UserFrosting and related modules.
 
 ## Exception
