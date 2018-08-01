@@ -1,5 +1,8 @@
 # Change Log
 
+## v4.1.3
+- Lower required version of symfony/yaml
+
 ## v4.1.2
 - Implement `DotenvEditor` class
 
