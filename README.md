@@ -1,7 +1,15 @@
-# Support module for UserFrosting 4.1
+# Support module for UserFrosting 4
 
 [![Build Status](https://travis-ci.org/userfrosting/support.svg?branch=master)](https://travis-ci.org/userfrosting/support)
 [![Join the chat at https://chat.userfrosting.com/channel/support](https://demo.rocket.chat/images/join-chat.svg)](https://chat.userfrosting.com/channel/support)
+
+[![Latest Version](https://img.shields.io/github/release/userfrosting/support.svg)](https://github.com/userfrosting/support/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
+[![Build Status](https://travis-ci.org/userfrosting/support.svg?branch=master)](https://travis-ci.org/userfrosting/support)
+[![Codecov](https://codecov.io/gh/userfrosting/support/branch/master/graph/badge.svg)](https://codecov.io/gh/userfrosting/support)
+[![Join the chat at https://chat.userfrosting.com/channel/support](https://demo.rocket.chat/images/join-chat.svg)](https://chat.userfrosting.com/channel/support)
+[![Donate](https://img.shields.io/badge/Open%20Collective-Donate-blue.svg)](https://opencollective.com/userfrosting#backer)
+
 
 This module contains support classes for UserFrosting and related modules.
 
@@ -153,8 +161,6 @@ The `DotenvEditor` class provides an implementation of [JackieDo Laravel-Dotenv-
 
 For complete usage of `DotenvEditor` class, see [](https://github.com/JackieDo/Laravel-Dotenv-Editor#reading-file-content).
 
-## Testing
+## [Style Guide](STYLE-GUIDE.md)
 
-```
-phpunit --bootstrap tests/bootstrap.php tests
-```
+## [Testing](RUNNING_TESTS.md)
