@@ -1,8 +1,5 @@
 # Support module for UserFrosting 4
 
-[![Build Status](https://travis-ci.org/userfrosting/support.svg?branch=master)](https://travis-ci.org/userfrosting/support)
-[![Join the chat at https://chat.userfrosting.com/channel/support](https://demo.rocket.chat/images/join-chat.svg)](https://chat.userfrosting.com/channel/support)
-
 [![Latest Version](https://img.shields.io/github/release/userfrosting/support.svg)](https://github.com/userfrosting/support/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
 [![Build Status](https://travis-ci.org/userfrosting/support.svg?branch=master)](https://travis-ci.org/userfrosting/support)

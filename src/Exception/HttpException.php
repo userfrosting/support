@@ -1,10 +1,12 @@
 <?php
 /**
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ * @copyright Copyright (c) 2013-2019 Alexander Weissman
+ * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
+
 namespace UserFrosting\Support\Exception;
 
 use UserFrosting\Support\Message\UserMessage as UserMessage;
@@ -20,7 +22,7 @@ use UserFrosting\Support\Message\UserMessage as UserMessage;
 class HttpException extends \Exception
 {
     /**
-     * @var integer Default HTTP error code associated with this exception.
+     * @var int Default HTTP error code associated with this exception.
      */
     protected $httpErrorCode = 500;
 
@@ -32,7 +34,7 @@ class HttpException extends \Exception
     /**
      * @var string Default user-viewable error message associated with this exception.
      */
-    protected $defaultMessage = "SERVER_ERROR";
+    protected $defaultMessage = 'SERVER_ERROR';
 
     /**
      * Return the HTTP status code associated with this exception.
@@ -62,7 +64,7 @@ class HttpException extends \Exception
      * Add a user-viewable message for this exception.
      *
      * @param UserMessage|string $message
-     * @param array $parameters The parameters to be filled in for any placeholders in the message.
+     * @param array              $parameters The parameters to be filled in for any placeholders in the message.
      */
     public function addUserMessage($message, $parameters = [])
     {

@@ -1,10 +1,12 @@
 <?php
 /**
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ * @copyright Copyright (c) 2013-2019 Alexander Weissman
+ * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
+
 namespace UserFrosting\Support\Repository;
 
 use Illuminate\Config\Repository as IlluminateRepository;
@@ -26,9 +28,9 @@ class Repository extends IlluminateRepository
      * If a key IS specified, items will be merged into that key.
      * Nested keys may be specified using dot syntax.
      * @param string|null $key
-     * @param mixed $items
+     * @param mixed       $items
      */
-    public function mergeItems($key = null, $items)
+    public function mergeItems($key, $items)
     {
         $targetValues = array_get($this->items, $key);
 
@@ -39,13 +41,14 @@ class Repository extends IlluminateRepository
         }
 
         array_set($this->items, $key, $modifiedValues);
+
         return $this;
     }
 
     /**
      * Get the specified configuration value, recursively removing all null values.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return mixed
      */
     public function getDefined($key = null)

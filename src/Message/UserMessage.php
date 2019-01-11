@@ -1,10 +1,12 @@
 <?php
 /**
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ * @copyright Copyright (c) 2013-2019 Alexander Weissman
+ * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
+
 namespace UserFrosting\Support\Message;
 
 /**
@@ -17,23 +19,22 @@ namespace UserFrosting\Support\Message;
  */
 class UserMessage
 {
-
     /**
      * @var string The user-viewable error message.
-     */       
+     */
     public $message;
-    
+
     /**
      * @var array The parameters to be filled in for any placeholders in the message.
-     */         
+     */
     public $parameters = [];
-    
+
     /**
      * Public constructor.
      *
      * @param string $message
-     * @param array $parameters The parameters to be filled in for any placeholders in the message.
-     */    
+     * @param array  $parameters The parameters to be filled in for any placeholders in the message.
+     */
     public function __construct($message, $parameters = [])
     {
         $this->message = $message;

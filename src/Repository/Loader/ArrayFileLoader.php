@@ -1,10 +1,12 @@
 <?php
 /**
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ * @copyright Copyright (c) 2013-2019 Alexander Weissman
+ * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
+
 namespace UserFrosting\Support\Repository\Loader;
 
 /**

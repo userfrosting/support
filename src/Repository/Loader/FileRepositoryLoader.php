@@ -1,10 +1,12 @@
 <?php
 /**
- * UserFrosting (http://www.userfrosting.com)
+ * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
- * @license   https://github.com/userfrosting/UserFrosting/blob/master/LICENSE.md (MIT License)
+ * @copyright Copyright (c) 2013-2019 Alexander Weissman
+ * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
+
 namespace UserFrosting\Support\Repository\Loader;
 
 use UserFrosting\Support\Exception\FileNotFoundException;
@@ -33,7 +35,7 @@ abstract class FileRepositoryLoader
     /**
      * Fetch content from a single file path.
      *
-     * @param string $path
+     * @param  string $path
      * @return array
      */
     abstract protected function parseFile($path);
@@ -58,10 +60,10 @@ abstract class FileRepositoryLoader
     /**
      * Fetch content from a single file path.
      *
-     * @param string $path
-     * @param bool $skipMissing True to ignore bad file paths.  If set to false, will throw an exception instead.
-     * @return array
+     * @param  string                $path
+     * @param  bool                  $skipMissing True to ignore bad file paths.  If set to false, will throw an exception instead.
      * @throws FileNotFoundException
+     * @return array
      */
     public function loadFile($path, $skipMissing = true)
     {
@@ -89,6 +91,7 @@ abstract class FileRepositoryLoader
     public function addPath($path)
     {
         $this->paths[] = rtrim($path, '/\\');
+
         return $this;
     }
 
@@ -100,6 +103,7 @@ abstract class FileRepositoryLoader
     public function prependPath($path)
     {
         array_unshift($this->paths[], rtrim($path, '/\\'));
+
         return $this;
     }
 
@@ -111,7 +115,7 @@ abstract class FileRepositoryLoader
     public function setPaths($paths)
     {
         if (!is_array($paths)) {
-            $paths = array($paths);
+            $paths = [$paths];
         }
 
         $this->paths = [];
