@@ -134,7 +134,7 @@ $schema = new \UserFrosting\Support\Repository\Repository($loader->load());
 
 ## Path Builders
 
-The abstract `PathBuilder` class uses an instance of the Rocket Theme [`UniformResourceLocator`](https://github.com/rockettheme/toolbox/blob/develop/ResourceLocator/src/UniformResourceLocator.php) to build a customized list of paths that can be passed into a `Loader` class.
+The abstract `PathBuilder` class uses an instance of the [`UniformResourceLocator`](https://github.com/userfrosting/uniformresourcelocator) to build a customized list of paths that can be passed into a `Loader` class.
 
 For example, the `StreamPathBuilder` class takes a `UniformResourceLocator` and a [stream path](https://webmozart.io/blog/2013/06/19/the-power-of-uniform-resource-location-in-php/) that has been registered with the locator, and returns a list of matching paths when you call the `buildPaths` method:
 
