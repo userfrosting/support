@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
+use UserFrosting\UniformResourceLocator\ResourceLocator;
 use UserFrosting\Support\Repository\PathBuilder\SimpleGlobBuilder;
 use UserFrosting\Support\Repository\PathBuilder\StreamPathBuilder;
 
@@ -14,19 +14,21 @@ class PathBuilderTest extends TestCase
     public function setUp()
     {
         $this->basePath = __DIR__ . '/data';
-        $this->locator = new UniformResourceLocator($this->basePath);
+        $this->locator = new ResourceLocator($this->basePath);
+
+        $this->locator->registerStream('owls');
 
         // Add them one at a time to simulate how they are added in SprinkleManager
-        $this->locator->addPath('owls', '', 'core/owls');
-        $this->locator->addPath('owls', '', 'account/owls');
-        $this->locator->addPath('owls', '', 'admin/owls');
+        $this->locator->registerLocation('core');
+        $this->locator->registerLocation('account');
+        $this->locator->registerLocation('admin');
     }
 
     public function testGlobBuildPaths()
     {
         // Arrange
         $builder = new SimpleGlobBuilder($this->locator, 'owls://');
-        
+
         // Act
         $paths = $builder->buildPaths();
 
@@ -44,7 +46,7 @@ class PathBuilderTest extends TestCase
     {
         // Arrange
         $builder = new StreamPathBuilder($this->locator, 'owls://megascops.php');
-        
+
         // Act
         $paths = $builder->buildPaths();
 

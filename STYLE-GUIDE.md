@@ -1,4 +1,4 @@
-# Style guide for contributing to userfrosting/i18n
+# Style guide for contributing to userfrosting/support
 
 ## PHP
 

@@ -9,7 +9,7 @@
 
 namespace UserFrosting\Support\Repository\PathBuilder;
 
-use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
+use UserFrosting\UniformResourceLocator\ResourceLocatorInterface;
 
 /**
  * Base PathBuilder class
@@ -19,7 +19,7 @@ use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
 abstract class PathBuilder
 {
     /**
-     * @var UniformResourceLocator Locator service to use when searching for files.
+     * @var ResourceLocatorInterface Locator service to use when searching for files.
      */
     protected $locator;
 
@@ -31,10 +31,10 @@ abstract class PathBuilder
     /**
      * Create the loader.
      *
-     * @param RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator $locator
-     * @param string                                                     $uri
+     * @param ResourceLocatorInterface $locator
+     * @param string                   $uri
      */
-    public function __construct($locator, $uri)
+    public function __construct(ResourceLocatorInterface $locator, $uri)
     {
         $this->locator = $locator;
         $this->uri = $uri;

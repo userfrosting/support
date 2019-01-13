@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
+use UserFrosting\UniformResourceLocator\ResourceLocator;
 use UserFrosting\Support\Repository\Loader\ArrayFileLoader;
 use UserFrosting\Support\Repository\Loader\YamlFileLoader;
 use UserFrosting\Support\Repository\PathBuilder\SimpleGlobBuilder;
@@ -24,12 +24,14 @@ class FileRepositoryLoaderTest extends TestCase
     public function setUp()
     {
         $this->basePath = __DIR__ . '/data';
-        $this->locator = new UniformResourceLocator($this->basePath);
+        $this->locator = new ResourceLocator($this->basePath);
+
+        $this->locator->registerStream('owls');
 
         // Add them one at a time to simulate how they are added in SprinkleManager
-        $this->locator->addPath('owls', '', 'core/owls');
-        $this->locator->addPath('owls', '', 'account/owls');
-        $this->locator->addPath('owls', '', 'admin/owls');
+        $this->locator->registerLocation('core');
+        $this->locator->registerLocation('account');
+        $this->locator->registerLocation('admin');
     }
 
     public function testGlobLoadArrays()
@@ -41,7 +43,7 @@ class FileRepositoryLoaderTest extends TestCase
         // Act
         $data = $loader->load();
 
-        $this->assertEquals($data, $this->targetData);
+        $this->assertEquals($this->targetData, $data);
     }
 
     public function testGlobLoadYaml()
@@ -53,6 +55,6 @@ class FileRepositoryLoaderTest extends TestCase
         // Act
         $data = $loader->load();
 
-        $this->assertEquals($data, $this->targetData);
+        $this->assertEquals($this->targetData, $data);
     }
 }
