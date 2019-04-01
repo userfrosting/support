@@ -2,11 +2,28 @@
 
 [![Latest Version](https://img.shields.io/github/release/userfrosting/support.svg)](https://github.com/userfrosting/support/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-[![Build Status](https://travis-ci.org/userfrosting/support.svg?branch=master)](https://travis-ci.org/userfrosting/support)
-[![Codecov](https://codecov.io/gh/userfrosting/support/branch/master/graph/badge.svg)](https://codecov.io/gh/userfrosting/support)
 [![Join the chat at https://chat.userfrosting.com/channel/support](https://demo.rocket.chat/images/join-chat.svg)](https://chat.userfrosting.com/channel/support)
 [![Donate](https://img.shields.io/badge/Open%20Collective-Donate-blue.svg)](https://opencollective.com/userfrosting#backer)
 
+| Branch | Build | Coverage | Style |
+| ------ |:-----:|:--------:|:-----:|
+| [master][Support]  | [![][support-master-build]][support-travis] | [![][support-master-codecov]][support-codecov] | [![][session-style-master]][session-style] |
+| [develop][support-develop] | [![][support-develop-build]][support-travis] | [![][support-develop-codecov]][support-codecov] | [![][session-style-develop]][session-style] |
+
+<!-- Links -->
+[Support]: https://github.com/userfrosting/support
+[support-develop]: https://github.com/userfrosting/support/tree/develop
+[support-version]: https://img.shields.io/github/release/userfrosting/support.svg
+[support-master-build]: https://travis-ci.org/userfrosting/support.svg?branch=master
+[support-master-codecov]: https://codecov.io/gh/userfrosting/support/branch/master/graph/badge.svg
+[support-develop-build]: https://travis-ci.org/userfrosting/support.svg?branch=develop
+[support-develop-codecov]: https://codecov.io/gh/userfrosting/support/branch/develop/graph/badge.svg
+[support-releases]: https://github.com/userfrosting/support/releases
+[support-travis]: https://travis-ci.org/userfrosting/support
+[support-codecov]: https://codecov.io/gh/userfrosting/support
+[support-style-master]: https://github.styleci.io/repos/60137523/shield?branch=master&style=flat
+[support-style-develop]: https://github.styleci.io/repos/60137523/shield?branch=develop&style=flat
+[support-style]: https://github.styleci.io/repos/60137523
 
 This module contains support classes for UserFrosting and related modules.
 
