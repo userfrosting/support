@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * UserFrosting Support (http://www.userfrosting.com)
+ *
+ * @link      https://github.com/userfrosting/support
+ * @copyright Copyright (c) 2013-2019 Alexander Weissman
+ * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
+ */
+
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Support\Repository\Repository;
 
@@ -7,13 +15,13 @@ class RepositoryTest extends TestCase
 {
     protected $data = [
         'voles' => [
-            'caught' => 8,
+            'caught'   => 8,
             'devoured' => null
         ],
-        'plumage' => null,
-        'chicks' => 4,
-        'in_flight' => false,
-        'name' => '',
+        'plumage'     => null,
+        'chicks'      => 4,
+        'in_flight'   => false,
+        'name'        => '',
         'chick_names' => []
     ];
 
@@ -27,9 +35,9 @@ class RepositoryTest extends TestCase
             'voles' => [
                 'caught' => 8
             ],
-            'chicks' => 4,
-            'in_flight' => false,
-            'name' => '',
+            'chicks'      => 4,
+            'in_flight'   => false,
+            'name'        => '',
             'chick_names' => []
         ], $defined);
     }

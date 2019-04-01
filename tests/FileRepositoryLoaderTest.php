@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * UserFrosting Support (http://www.userfrosting.com)
+ *
+ * @link      https://github.com/userfrosting/support
+ * @copyright Copyright (c) 2013-2019 Alexander Weissman
+ * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
+ */
+
 use PHPUnit\Framework\TestCase;
 use UserFrosting\UniformResourceLocator\ResourceLocator;
 use UserFrosting\Support\Repository\Loader\ArrayFileLoader;
@@ -14,11 +22,11 @@ class FileRepositoryLoaderTest extends TestCase
 
     protected $targetData = [
         'voles' => [
-            'caught' => 8,
+            'caught'   => 8,
             'devoured' => 8
         ],
         'plumage' => 'floofy',
-        'chicks' => 4
+        'chicks'  => 4
     ];
 
     public function setUp()
