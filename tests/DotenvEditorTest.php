@@ -13,23 +13,44 @@ use UserFrosting\Support\DotenvEditor\DotenvEditor;
 
 class DotenvEditorTest extends TestCase
 {
-    protected $basePath;
+    protected $basePath = __DIR__.'/data/';
 
-    public function setUp()
-    {
-        $this->basePath = __DIR__.'/data/';
-    }
-
-    public function testBaseClass()
+    public function testConstructor()
     {
         $editor = new DotenvEditor($this->basePath.'.env-backups/');
         $this->assertInstanceOf(DotenvEditor::class, $editor);
 
-        // Test load
+        return $editor;
+    }
+
+    /**
+     * @depends testConstructor
+     * @expectedException \Jackiedo\DotenvEditor\Exceptions\FileNotFoundException
+     */
+    public function testBackupException()
+    {
+        new DotenvEditor($this->basePath.'backups/');
+    }
+
+    /**
+     * @depends testConstructor
+     */
+    public function testLoad()
+    {
+        $editor = new DotenvEditor($this->basePath.'.env-backups/');
         $editor->load($this->basePath.'.env');
         $this->assertEquals('dbpass', $editor->getValue('DB_PASSWORD'));
+    }
 
-        // Test backup
+    /**
+     * @depends testConstructor
+     * @depends testLoad
+     */
+    public function testBackup()
+    {
+        $editor = new DotenvEditor($this->basePath.'.env-backups/');
+        $editor->load($this->basePath.'.env');
+
         $backups_before = $editor->getBackups();
         $editor->backup();
         $backups_after = $editor->getBackups();
@@ -40,10 +61,26 @@ class DotenvEditorTest extends TestCase
     }
 
     /**
-     * @expectedException \Jackiedo\DotenvEditor\Exceptions\FileNotFoundException
+     * @depends testConstructor
      */
-    public function testBackupException()
+    public function testLoadPathNotExist()
     {
-        new DotenvEditor($this->basePath.'backups/');
+        $editor = new DotenvEditor($this->basePath.'.env-backups/');
+        $result = $editor->load($this->basePath.'.fakeEnv');
+        $this->assertEquals($editor, $result);
+    }
+
+    /**
+     * @depends testConstructor
+     */
+    public function testLoadPathNotExistAndRestore()
+    {
+        // Create a backup
+        $editor = new DotenvEditor($this->basePath.'.env-backups/');
+        $editor->load($this->basePath.'.env');
+        $editor->backup();
+
+        $result = $editor->load($this->basePath.'.fakeEnv', true);
+        $this->assertEquals($editor, $result);
     }
 }
