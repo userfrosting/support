@@ -7,8 +7,8 @@
 
 | Branch | Build | Coverage | Style |
 | ------ |:-----:|:--------:|:-----:|
-| [master][Support]  | [![][support-master-build]][support-travis] | [![][support-master-codecov]][support-codecov] | [![][session-style-master]][session-style] |
-| [develop][support-develop] | [![][support-develop-build]][support-travis] | [![][support-develop-codecov]][support-codecov] | [![][session-style-develop]][session-style] |
+| [master][Support]  | [![][support-master-build]][support-travis] | [![][support-master-codecov]][support-codecov] | [![][support-style-master]][support-style] |
+| [develop][support-develop] | [![][support-develop-build]][support-travis] | [![][support-develop-codecov]][support-codecov] | [![][support-style-develop]][support-style] |
 
 <!-- Links -->
 [Support]: https://github.com/userfrosting/support
