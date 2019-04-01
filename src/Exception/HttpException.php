@@ -10,7 +10,7 @@
 
 namespace UserFrosting\Support\Exception;
 
-use UserFrosting\Support\Message\UserMessage as UserMessage;
+use UserFrosting\Support\Message\UserMessage;
 
 /**
  * HttpException.
