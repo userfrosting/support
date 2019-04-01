@@ -16,13 +16,13 @@ class RepositoryTest extends TestCase
     protected $data = [
         'voles' => [
             'caught'   => 8,
-            'devoured' => null
+            'devoured' => null,
         ],
         'plumage'     => null,
         'chicks'      => 4,
         'in_flight'   => false,
         'name'        => '',
-        'chick_names' => []
+        'chick_names' => [],
     ];
 
     public function testGetDefined()
@@ -33,12 +33,12 @@ class RepositoryTest extends TestCase
 
         $this->assertEquals([
             'voles' => [
-                'caught' => 8
+                'caught' => 8,
             ],
             'chicks'      => 4,
             'in_flight'   => false,
             'name'        => '',
-            'chick_names' => []
+            'chick_names' => [],
         ], $defined);
     }
 
@@ -49,7 +49,7 @@ class RepositoryTest extends TestCase
         $defined = $repo->getDefined('voles');
 
         $this->assertEquals([
-            'caught' => 8
+            'caught' => 8,
         ], $defined);
     }
 }

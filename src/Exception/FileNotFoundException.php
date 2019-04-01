@@ -11,7 +11,7 @@
 namespace UserFrosting\Support\Exception;
 
 /**
- * FileNotFoundException
+ * FileNotFoundException.
  *
  * This exception should be thrown when a requested file could not be found.
  *

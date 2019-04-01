@@ -17,16 +17,16 @@ class DotenvEditorTest extends TestCase
 
     public function setUp()
     {
-        $this->basePath = __DIR__ . '/data/';
+        $this->basePath = __DIR__.'/data/';
     }
 
     public function testBaseClass()
     {
-        $editor = new DotenvEditor($this->basePath . '.env-backups/');
+        $editor = new DotenvEditor($this->basePath.'.env-backups/');
         $this->assertInstanceOf(DotenvEditor::class, $editor);
 
         // Test load
-        $editor->load($this->basePath . '.env');
+        $editor->load($this->basePath.'.env');
         $this->assertEquals('dbpass', $editor->getValue('DB_PASSWORD'));
 
         // Test backup
@@ -44,6 +44,6 @@ class DotenvEditorTest extends TestCase
      */
     public function testBackupException()
     {
-        new DotenvEditor($this->basePath . 'backups/');
+        new DotenvEditor($this->basePath.'backups/');
     }
 }

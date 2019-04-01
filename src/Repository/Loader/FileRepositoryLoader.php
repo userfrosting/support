@@ -26,6 +26,7 @@ abstract class FileRepositoryLoader
 
     /**
      * Create the loader.
+     *
      * @param string|string[] $paths
      */
     public function __construct($paths)
@@ -36,7 +37,8 @@ abstract class FileRepositoryLoader
     /**
      * Fetch content from a single file path.
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return array
      */
     abstract protected function parseFile($path);
@@ -61,9 +63,11 @@ abstract class FileRepositoryLoader
     /**
      * Fetch content from a single file path.
      *
-     * @param  string                $path
-     * @param  bool                  $skipMissing True to ignore bad file paths.  If set to false, will throw an exception instead.
+     * @param string $path
+     * @param bool   $skipMissing True to ignore bad file paths.  If set to false, will throw an exception instead.
+     *
      * @throws FileNotFoundException
+     *
      * @return array
      */
     public function loadFile($path, $skipMissing = true)

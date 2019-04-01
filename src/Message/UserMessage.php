@@ -11,7 +11,7 @@
 namespace UserFrosting\Support\Message;
 
 /**
- * UserMessage
+ * UserMessage.
  *
  * A user-viewable message, consisting of a message string or message token, and zero or more parameters for the message.
  * Parameters can be used, for example, to fill in placeholders in dynamically generated messages.

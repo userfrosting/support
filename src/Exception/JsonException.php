@@ -11,7 +11,7 @@
 namespace UserFrosting\Support\Exception;
 
 /**
- * JsonException
+ * JsonException.
  *
  * This exception should be thrown when there was a problem processing a JSON document.
  *

@@ -14,7 +14,7 @@ use Illuminate\Config\Repository as IlluminateRepository;
 use UserFrosting\Support\Util\Util;
 
 /**
- * Repository Class
+ * Repository Class.
  *
  * Represents an extendable repository of key->value mappings.
  *
@@ -28,6 +28,7 @@ class Repository extends IlluminateRepository
      * If no key is specified, the items will be merged in starting from the top level of the array.
      * If a key IS specified, items will be merged into that key.
      * Nested keys may be specified using dot syntax.
+     *
      * @param string|null $key
      * @param mixed       $items
      */
@@ -49,7 +50,8 @@ class Repository extends IlluminateRepository
     /**
      * Get the specified configuration value, recursively removing all null values.
      *
-     * @param  string $key
+     * @param string $key
+     *
      * @return mixed
      */
     public function getDefined($key = null)

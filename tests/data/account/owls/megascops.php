@@ -10,6 +10,6 @@
 
 return [
     'voles' => [
-        'devoured' => 8
-    ]
+        'devoured' => 8,
+    ],
 ];

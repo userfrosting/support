@@ -9,10 +9,10 @@
  */
 
 use PHPUnit\Framework\TestCase;
-use UserFrosting\UniformResourceLocator\ResourceLocator;
 use UserFrosting\Support\Repository\Loader\ArrayFileLoader;
 use UserFrosting\Support\Repository\Loader\YamlFileLoader;
 use UserFrosting\Support\Repository\PathBuilder\SimpleGlobBuilder;
+use UserFrosting\UniformResourceLocator\ResourceLocator;
 
 class FileRepositoryLoaderTest extends TestCase
 {
@@ -23,15 +23,15 @@ class FileRepositoryLoaderTest extends TestCase
     protected $targetData = [
         'voles' => [
             'caught'   => 8,
-            'devoured' => 8
+            'devoured' => 8,
         ],
         'plumage' => 'floofy',
-        'chicks'  => 4
+        'chicks'  => 4,
     ];
 
     public function setUp()
     {
-        $this->basePath = __DIR__ . '/data';
+        $this->basePath = __DIR__.'/data';
         $this->locator = new ResourceLocator($this->basePath);
 
         $this->locator->registerStream('owls');

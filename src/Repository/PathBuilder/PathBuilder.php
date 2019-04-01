@@ -13,7 +13,7 @@ namespace UserFrosting\Support\Repository\PathBuilder;
 use UserFrosting\UniformResourceLocator\ResourceLocatorInterface;
 
 /**
- * Base PathBuilder class
+ * Base PathBuilder class.
  *
  * @author Alexander Weissman (https://alexanderweissman.com)
  */

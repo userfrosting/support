@@ -9,9 +9,9 @@
  */
 
 use PHPUnit\Framework\TestCase;
-use UserFrosting\UniformResourceLocator\ResourceLocator;
 use UserFrosting\Support\Repository\PathBuilder\SimpleGlobBuilder;
 use UserFrosting\Support\Repository\PathBuilder\StreamPathBuilder;
+use UserFrosting\UniformResourceLocator\ResourceLocator;
 
 class PathBuilderTest extends TestCase
 {
@@ -21,7 +21,7 @@ class PathBuilderTest extends TestCase
 
     public function setUp()
     {
-        $this->basePath = __DIR__ . '/data';
+        $this->basePath = __DIR__.'/data';
         $this->locator = new ResourceLocator($this->basePath);
 
         $this->locator->registerStream('owls');
@@ -42,10 +42,10 @@ class PathBuilderTest extends TestCase
 
         // Assert
         $this->assertEquals($paths, [
-            $this->basePath . '/core/owls/megascops.php',
-            $this->basePath . '/core/owls/tyto.php',
-            $this->basePath . '/account/owls/megascops.php',
-            $this->basePath . '/admin/owls/megascops.php'
+            $this->basePath.'/core/owls/megascops.php',
+            $this->basePath.'/core/owls/tyto.php',
+            $this->basePath.'/account/owls/megascops.php',
+            $this->basePath.'/admin/owls/megascops.php',
         ]);
     }
 
@@ -59,9 +59,9 @@ class PathBuilderTest extends TestCase
 
         // Assert
         $this->assertEquals([
-            $this->basePath . '/core/owls/megascops.php',
-            $this->basePath . '/account/owls/megascops.php',
-            $this->basePath . '/admin/owls/megascops.php'
+            $this->basePath.'/core/owls/megascops.php',
+            $this->basePath.'/account/owls/megascops.php',
+            $this->basePath.'/admin/owls/megascops.php',
         ], $paths);
     }
 }

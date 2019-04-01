@@ -9,5 +9,5 @@
  */
 
 return [
-    'plumage' => 'floofy'
+    'plumage' => 'floofy',
 ];

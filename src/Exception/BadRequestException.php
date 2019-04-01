@@ -11,7 +11,7 @@
 namespace UserFrosting\Support\Exception;
 
 /**
- * BadRequestException
+ * BadRequestException.
  *
  * This exception should be thrown when a user has submitted an ill-formed request, or other incorrect data.
  *

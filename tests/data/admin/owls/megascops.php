@@ -9,5 +9,5 @@
  */
 
 return [
-    'chicks' => 4
+    'chicks' => 4,
 ];

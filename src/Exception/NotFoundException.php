@@ -11,7 +11,7 @@
 namespace UserFrosting\Support\Exception;
 
 /**
- * NotFoundException
+ * NotFoundException.
  *
  * This exception should be thrown when a resource could not be found.
  *
