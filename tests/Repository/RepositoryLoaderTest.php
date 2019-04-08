@@ -56,8 +56,6 @@ class RepositoryLoaderTest extends TestCase
         $this->assertEquals($this->targetData, $data);
     }
 
-    /**
-     */
     public function testYamlFileLoader()
     {
         // Arrange

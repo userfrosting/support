@@ -23,7 +23,7 @@ use UserFrosting\Support\Exception\JsonException;
 class YamlFileLoader extends FileRepositoryLoader
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function parseFile($path)
     {

@@ -52,4 +52,47 @@ class RepositoryTest extends TestCase
             'caught' => 8,
         ], $defined);
     }
+
+    /**
+     * @depends testGetDefined
+     */
+    public function testGetDefinedWithString()
+    {
+        $repo = new Repository($this->data);
+
+        $defined = $repo->getDefined('chicks');
+
+        $this->assertEquals(4, $defined);
+    }
+
+    /**
+     * @depends testGetDefinedWithString
+     */
+    public function testMergeItems()
+    {
+        $repo = new Repository($this->data);
+
+        $repo->mergeItems('foo', 'bar');
+        $defined = $repo->getDefined('foo');
+
+        $this->assertEquals('bar', $defined);
+    }
+
+    /**
+     * @depends testGetDefinedWithString
+     */
+    public function testMergeItemsWithArray()
+    {
+        $repo = new Repository($this->data);
+
+        $newData = [
+            'caught' => 4,
+            'foo'    => 'bar',
+        ];
+
+        $repo->mergeItems('voles', $newData);
+        $defined = $repo->getDefined('voles');
+
+        $this->assertEquals($newData, $defined);
+    }
 }
