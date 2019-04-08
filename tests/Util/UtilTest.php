@@ -50,4 +50,91 @@ class UtilTest extends TestCase
 
         $this->assertFalse(Util::stringMatches($patterns, $str));
     }
+
+    /**
+     * @param string $prefix
+     * @param string $expectedResult
+     *
+     * @testWith ["", "owls::voles"]
+     *           ["::", "owls::voles"]
+     *           ["owls", "::voles"]
+     *           ["owls::", "voles"]
+     *           ["owls::voles", ""]
+     */
+    public function testStripPrefix($prefix, $expectedResult)
+    {
+        $str = 'owls::voles';
+        $this->assertSame($expectedResult, Util::stripPrefix($str, $prefix));
+    }
+
+    /**
+     * @dataProvider normalizePathDataProvider
+     */
+    public function testNormalizePath($uri, $expectedResult)
+    {
+        $this->assertSame($expectedResult, Util::normalizePath($uri, false, false));
+    }
+
+    public function normalizePathDataProvider()
+    {
+        return [
+            ['', ''],
+            ['./', ''],
+            ['././/./', ''],
+            ['././/../', false],
+            ['/', '/'],
+            ['//', '/'],
+            ['///', '/'],
+            ['/././', '/'],
+            ['foo', 'foo'],
+            ['/foo', '/foo'],
+            ['//foo', '/foo'],
+            ['/foo/', '/foo/'],
+            ['//foo//', '/foo/'],
+            ['path/to/file.txt', 'path/to/file.txt'],
+            ['path/to/../file.txt', 'path/file.txt'],
+            ['path/to/../../file.txt', 'file.txt'],
+            ['path/to/../../../file.txt', false],
+            ['/path/to/file.txt', '/path/to/file.txt'],
+            ['/path/to/../file.txt', '/path/file.txt'],
+            ['/path/to/../../file.txt', '/file.txt'],
+            ['/path/to/../../../file.txt', false],
+            ['c:\\', 'c:/'],
+            ['c:\\path\\to\file.txt', 'c:/path/to/file.txt'],
+            ['c:\\path\\to\../file.txt', 'c:/path/file.txt'],
+            ['c:\\path\\to\../../file.txt', 'c:/file.txt'],
+            ['c:\\path\\to\../../../file.txt', false],
+            ['stream://path/to/file.txt', 'stream://path/to/file.txt'],
+            ['stream://path/to/../file.txt', 'stream://path/file.txt'],
+            ['stream://path/to/../../file.txt', 'stream://file.txt'],
+            ['stream://path/to/../../../file.txt', false],
+            [['foo'], false],
+        ];
+    }
+
+    /**
+     * @depends testNormalizePath
+     */
+    public function testNormalizePathWithThrowExceptionOnNonStringUri()
+    {
+        $this->expectException(\BadMethodCallException::class);
+        Util::normalizePath(['foo'], true, false);
+    }
+
+    /**
+     * @depends testNormalizePath
+     */
+    public function testNormalizePathWithThrowExceptionOnBadParts()
+    {
+        $this->expectException(\BadMethodCallException::class);
+        Util::normalizePath('././/../', true, false);
+    }
+
+    /**
+     * @depends testNormalizePath
+     */
+    public function testNormalizePathWithSplitStream()
+    {
+        $this->assertSame(['stream', 'path/to/file.txt'], Util::normalizePath('stream://path/to/file.txt', false, true));
+    }
 }
