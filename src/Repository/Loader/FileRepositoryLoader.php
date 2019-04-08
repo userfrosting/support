@@ -46,6 +46,8 @@ abstract class FileRepositoryLoader
     /**
      * Fetch and recursively merge in content from all file paths.
      *
+     * @param bool $skipMissing
+     *
      * @return array
      */
     public function load($skipMissing = true)
@@ -107,7 +109,7 @@ abstract class FileRepositoryLoader
      */
     public function prependPath($path)
     {
-        array_unshift($this->paths[], rtrim($path, '/\\'));
+        array_unshift($this->paths, rtrim($path, '/\\'));
 
         return $this;
     }
