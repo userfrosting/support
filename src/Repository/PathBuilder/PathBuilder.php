@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
@@ -12,7 +13,7 @@ namespace UserFrosting\Support\Repository\PathBuilder;
 use UserFrosting\UniformResourceLocator\ResourceLocatorInterface;
 
 /**
- * Base PathBuilder class
+ * Base PathBuilder class.
  *
  * @author Alexander Weissman (https://alexanderweissman.com)
  */

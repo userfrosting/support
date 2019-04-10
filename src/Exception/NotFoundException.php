@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
@@ -10,7 +11,7 @@
 namespace UserFrosting\Support\Exception;
 
 /**
- * NotFoundException
+ * NotFoundException.
  *
  * This exception should be thrown when a resource could not be found.
  *

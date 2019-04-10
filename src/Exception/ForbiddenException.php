@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
@@ -10,7 +11,7 @@
 namespace UserFrosting\Support\Exception;
 
 /**
- * ForbiddenException
+ * ForbiddenException.
  *
  * This exception should be thrown when a user has attempted to perform an unauthorized action.
  *

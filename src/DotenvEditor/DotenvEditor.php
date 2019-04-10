@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
@@ -16,7 +17,7 @@ use Jackiedo\DotenvEditor\DotenvWriter;
 use Jackiedo\DotenvEditor\Exceptions\FileNotFoundException;
 
 /**
- * DotenvEditor
+ * DotenvEditor.
  *
  * Implementation of Jackiedo DotenvEditor for use in UserFrosting
  *
@@ -25,10 +26,11 @@ use Jackiedo\DotenvEditor\Exceptions\FileNotFoundException;
 class DotenvEditor extends Editor
 {
     /**
-     * Create a new DotenvEditor instance
+     * Create a new DotenvEditor instance.
      *
-     * @param  string                $backupPath
-     * @param  bool                  $autoBackup
+     * @param string $backupPath
+     * @param bool   $autoBackup
+     *
      * @throws FileNotFoundException
      */
     public function __construct($backupPath = '', $autoBackup = true)
@@ -46,7 +48,7 @@ class DotenvEditor extends Editor
     }
 
     /**
-     * Load file for working
+     * Load file for working.
      *
      * @param string|null $filePath          The file path
      * @param bool        $restoreIfNotFound Restore this file from other file if it's not found

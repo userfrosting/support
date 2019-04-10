@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
@@ -22,11 +23,11 @@ use UserFrosting\Support\Exception\JsonException;
 class YamlFileLoader extends FileRepositoryLoader
 {
     /**
-     * @return array
+     * {@inheritdoc}
      */
     protected function parseFile($path)
     {
-        $doc = file_get_contents($path);
+        $doc = $this->fileGetContents($path);
         if ($doc === false) {
             throw new FileNotFoundException("The file '$path' could not be read.");
         }
@@ -37,10 +38,22 @@ class YamlFileLoader extends FileRepositoryLoader
             // Fallback to try and parse as JSON, if it fails to be parsed as YAML
             $result = json_decode($doc, true);
             if ($result === null) {
-                throw new JsonException("The file '$path' does not contain a valid YAML or JSON document.  JSON error: " . json_last_error());
+                throw new JsonException("The file '$path' does not contain a valid YAML or JSON document.  JSON error: ".json_last_error());
             }
         }
 
         return $result;
+    }
+
+    /**
+     * Reads entire path into a string.
+     *
+     * @param string $path
+     *
+     * @return string|bool
+     */
+    protected function fileGetContents($path)
+    {
+        return file_get_contents($path);
     }
 }

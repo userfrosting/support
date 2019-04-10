@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * UserFrosting Support (http://www.userfrosting.com)
  *
  * @link      https://github.com/userfrosting/support
@@ -9,10 +10,10 @@
 
 namespace UserFrosting\Support\Exception;
 
-use UserFrosting\Support\Message\UserMessage as UserMessage;
+use UserFrosting\Support\Message\UserMessage;
 
 /**
- * HttpException
+ * HttpException.
  *
  * Child classes of HttpException should be thrown when we want to return
  * an HTTP status code and user-viewable message(s) during the application lifecycle.
