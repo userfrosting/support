@@ -5,6 +5,5 @@ composer.lock
 .php_cs.cache
 _meta
 
-tests/DotenvEditor/data/.fakeEnv
 tests/DotenvEditor/data/.env-backups/*
 !tests/DotenvEditor/data/.env-backups/.gitkeep

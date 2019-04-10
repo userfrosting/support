@@ -58,6 +58,9 @@ class DotenvEditorTest extends TestCase
 
         $editor->deleteBackups();
         $this->assertCount(0, $editor->getBackups());
+
+        // Reset our test dir
+        touch($this->basePath.'.env-backups/.gitkeep');
     }
 
     /**
@@ -82,5 +85,10 @@ class DotenvEditorTest extends TestCase
 
         $result = $editor->load($this->basePath.'.fakeEnv', true);
         $this->assertEquals($editor, $result);
+
+        // Reset our test dir
+        unlink($this->basePath.'.fakeEnv');
+        $editor->deleteBackups();
+        touch($this->basePath.'.env-backups/.gitkeep');
     }
 }
