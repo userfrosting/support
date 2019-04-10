@@ -68,6 +68,9 @@ class UtilTest extends TestCase
     }
 
     /**
+     * @param string $uri
+     * @param string $expectedResult
+     *
      * @dataProvider normalizePathDataProvider
      */
     public function testNormalizePath($uri, $expectedResult)

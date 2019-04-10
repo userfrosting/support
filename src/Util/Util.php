@@ -93,6 +93,12 @@ class Util
      */
     public static function stripPrefix($str, $prefix = '')
     {
+        // if string is same as prefix, return empty string
+        // Otherwise PHP 5.6 will return false
+        if ($str === $prefix) {
+            return '';
+        }
+
         if (substr($str, 0, strlen($prefix)) == $prefix) {
             $str = substr($str, strlen($prefix));
         }
