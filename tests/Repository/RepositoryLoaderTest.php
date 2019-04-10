@@ -144,6 +144,52 @@ class RepositoryLoaderTest extends TestCase
 
     /**
      * @depends testYamlFileLoader
+     * @depends testYamlFileLoaderWithStringPath
+     */
+    public function testYamlFileLoaderWithNotReadable()
+    {
+        // Need to mock `is_readable`. That's why it's wrapped in a method, so we can properly test the exception.
+        // @see https://stackoverflow.com/a/20080850
+        $path = __DIR__.'/data/core/owls/tyto.yaml';
+        $loader = $this->getMockBuilder(YamlFileLoader::class)
+                       ->setConstructorArgs([$path])
+                       ->setMethods(['isReadable'])
+                       ->getMock();
+        $loader->method('isReadable')->willReturn(false);
+
+        // Set expectations
+        $this->expectException(FileNotFoundException::class);
+        $this->expectExceptionMessage("The repository file '$path' exists, but it could not be read.");
+
+        // Act
+        $data = $loader->load();
+    }
+
+    /**
+     * @depends testYamlFileLoader
+     * @depends testYamlFileLoaderWithStringPath
+     */
+    public function testYamlFileLoaderWithFalseFileContent()
+    {
+        // Need to mock `file_get_contents`. That's why it's wrapped in a method, so we can properly test the exception.
+        // @see https://stackoverflow.com/a/53905681/445757
+        $path = __DIR__.'/data/core/owls/tyto.yaml';
+        $loader = $this->getMockBuilder(YamlFileLoader::class)
+                       ->setConstructorArgs([$path])
+                       ->setMethods(['fileGetContents'])
+                       ->getMock();
+        $loader->method('fileGetContents')->willReturn(false);
+
+        // Set expectations
+        $this->expectException(FileNotFoundException::class);
+        $this->expectExceptionMessage("The file '$path' could not be read.");
+
+        // Act
+        $data = $loader->load();
+    }
+
+    /**
+     * @depends testYamlFileLoader
      */
     public function testLoadYamlWithJsonData()
     {

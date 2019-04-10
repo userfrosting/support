@@ -83,11 +83,23 @@ abstract class FileRepositoryLoader
         }
 
         // If the file exists but is not readable, we always throw an exception.
-        if (!is_readable($path)) {
+        if (!$this->isReadable($path)) {
             throw new FileNotFoundException("The repository file '$path' exists, but it could not be read.");
         }
 
         return $this->parseFile($path);
+    }
+
+    /**
+     * Return if path is readable.
+     *
+     * @param string $path
+     *
+     * @return bool
+     */
+    protected function isReadable($path)
+    {
+        return is_readable($path);
     }
 
     /**

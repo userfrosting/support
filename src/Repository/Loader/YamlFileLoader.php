@@ -27,7 +27,7 @@ class YamlFileLoader extends FileRepositoryLoader
      */
     protected function parseFile($path)
     {
-        $doc = file_get_contents($path);
+        $doc = $this->fileGetContents($path);
         if ($doc === false) {
             throw new FileNotFoundException("The file '$path' could not be read.");
         }
@@ -43,5 +43,17 @@ class YamlFileLoader extends FileRepositoryLoader
         }
 
         return $result;
+    }
+
+    /**
+     * Reads entire path into a string.
+     *
+     * @param string $path
+     *
+     * @return string|bool
+     */
+    protected function fileGetContents($path)
+    {
+        return file_get_contents($path);
     }
 }
