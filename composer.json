@@ -12,15 +12,15 @@
         }
     ],
     "require": {
-        "illuminate/config": "^5.4",
+        "illuminate/config": "^5.8",
         "jackiedo/dotenv-editor": "~1.0.7",
-        "php": ">=5.6.0",
-        "userfrosting/uniformresourcelocator": "~4.2.1",
+        "php": ">=7.1",
+        "userfrosting/uniformresourcelocator": "~4.2.1 | ~4.3.0",
         "symfony/yaml": ">=2.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.13",
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^7.5"
     },
     "autoload": {
         "psr-4": {
