@@ -1,7 +1,7 @@
 # Support module for UserFrosting 4
 
 [![Latest Version](https://img.shields.io/github/release/userfrosting/support.svg)](https://github.com/userfrosting/support/releases)
-![PHP Version](https://img.shields.io/packagist/php-v/userfrosting/userfrosting.svg?color=brightgreen)
+![PHP Version](https://img.shields.io/packagist/php-v/userfrosting/support.svg?color=brightgreen)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
 [![Join the chat at https://chat.userfrosting.com/channel/support](https://demo.rocket.chat/images/join-chat.svg)](https://chat.userfrosting.com/channel/support)
 [![Donate](https://img.shields.io/badge/Open%20Collective-Donate-blue.svg)](https://opencollective.com/userfrosting#backer)
