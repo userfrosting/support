@@ -198,19 +198,52 @@ class RepositoryLoaderTest extends TestCase
      */
     public function testYamlFileLoaderWithNoFileContent()
     {
-        // Need to mock `file_get_contents`. That's why it's wrapped in a method, so we can properly test the exception.
-        // @see https://stackoverflow.com/a/53905681/445757
-        $path = __DIR__.'/data/core/owls/tyto.yaml';
-        $loader = $this->getMockBuilder(YamlFileLoader::class)
-                       ->setConstructorArgs([$path])
-                       ->setMethods(['fileGetContents'])
-                       ->getMock();
-        $loader->method('fileGetContents')->willReturn('');
+        $loader = new YamlFileLoader(__DIR__.'/data/core/owls/empty.yaml');
 
         // Act
         $data = $loader->load();
 
         $this->assertEquals([], $data);
+    }
+
+    /**
+     * Make sure an empty file doesn't mess up by returning null.
+     *
+     * @depends testYamlFileLoaderWithNoFileContent
+     */
+    public function testYamlFileLoaderWithNoFileContentOnFirstFile()
+    {
+        $loader = new YamlFileLoader([
+            __DIR__.'/data/core/owls/empty.yaml',
+            __DIR__.'/data/core/owls/tyto.yaml',
+        ]);
+
+        // Act
+        $data = $loader->load();
+
+        $this->assertEquals([
+            'plumage' => 'floofy',
+        ], $data);
+    }
+
+    /**
+     * Make sure an empty file doesn't mess up by returning null.
+     *
+     * @depends testYamlFileLoaderWithNoFileContent
+     */
+    public function testYamlFileLoaderWithNoFileContentOnSecondFile()
+    {
+        $loader = new YamlFileLoader([
+            __DIR__.'/data/core/owls/tyto.yaml',
+            __DIR__.'/data/core/owls/empty.yaml',
+        ]);
+
+        // Act
+        $data = $loader->load();
+
+        $this->assertEquals([
+            'plumage' => 'floofy',
+        ], $data);
     }
 
     /**
