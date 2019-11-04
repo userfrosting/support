@@ -78,6 +78,16 @@ class DotenvEditorTest extends TestCase
     /**
      * @depends testConstructor
      */
+    public function testLoadPathIsNull()
+    {
+        $editor = new DotenvEditor($this->basePath.'.env-backups/');
+        $this->expectException(\InvalidArgumentException::class);
+        $result = $editor->load();
+    }
+
+    /**
+     * @depends testConstructor
+     */
     public function testLoadPathNotExistAndRestore()
     {
         // Create a backup
