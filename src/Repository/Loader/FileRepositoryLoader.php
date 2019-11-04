@@ -57,11 +57,6 @@ abstract class FileRepositoryLoader
         foreach ($this->paths as $path) {
             $contents = $this->loadFile($path, $skipMissing);
             $result = array_replace_recursive($result, $contents);
-
-            // In case `array_replace_recursive` return an error
-            if (is_null($result)) {
-                throw new \Exception("Can't load, array_replace_recursive returned null");
-            }
         }
 
         return $result;
