@@ -8,6 +8,8 @@
  * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
 
+namespace UserFrosting\Support\Tests\Repository;
+
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Support\Exception\FileNotFoundException;
 use UserFrosting\Support\Exception\JsonException;
@@ -186,6 +188,29 @@ class RepositoryLoaderTest extends TestCase
 
         // Act
         $data = $loader->load();
+    }
+
+    /**
+     * Make sure an empty file doesn't mess up by returning null.
+     *
+     * @depends testYamlFileLoader
+     * @depends testYamlFileLoaderWithStringPath
+     */
+    public function testYamlFileLoaderWithNoFileContent()
+    {
+        // Need to mock `file_get_contents`. That's why it's wrapped in a method, so we can properly test the exception.
+        // @see https://stackoverflow.com/a/53905681/445757
+        $path = __DIR__.'/data/core/owls/tyto.yaml';
+        $loader = $this->getMockBuilder(YamlFileLoader::class)
+                       ->setConstructorArgs([$path])
+                       ->setMethods(['fileGetContents'])
+                       ->getMock();
+        $loader->method('fileGetContents')->willReturn('');
+
+        // Act
+        $data = $loader->load();
+
+        $this->assertEquals([], $data);
     }
 
     /**

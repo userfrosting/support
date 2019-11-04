@@ -11,6 +11,7 @@
 namespace UserFrosting\Support\Repository;
 
 use Illuminate\Config\Repository as IlluminateRepository;
+use Illuminate\Support\Arr;
 use UserFrosting\Support\Util\Util;
 
 /**
@@ -32,9 +33,9 @@ class Repository extends IlluminateRepository
      * @param string|null $key
      * @param mixed       $items
      */
-    public function mergeItems($key, $items)
+    public function mergeItems(?string $key, $items): self
     {
-        $targetValues = array_get($this->items, $key);
+        $targetValues = Arr::get($this->items, $key);
 
         if (is_array($targetValues)) {
             $modifiedValues = array_replace_recursive($targetValues, $items);
@@ -42,7 +43,7 @@ class Repository extends IlluminateRepository
             $modifiedValues = $items;
         }
 
-        array_set($this->items, $key, $modifiedValues);
+        Arr::set($this->items, $key, $modifiedValues);
 
         return $this;
     }
@@ -50,7 +51,7 @@ class Repository extends IlluminateRepository
     /**
      * Get the specified configuration value, recursively removing all null values.
      *
-     * @param string $key
+     * @param string|array|null $key
      *
      * @return mixed
      */

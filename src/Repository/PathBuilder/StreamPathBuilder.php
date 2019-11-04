@@ -22,7 +22,7 @@ class StreamPathBuilder extends PathBuilder
      *
      * @return array
      */
-    public function buildPaths()
+    public function buildPaths(): array
     {
         // Get all paths from the locator that match the uri.
         // Put them in reverse order to allow later files to override earlier files.

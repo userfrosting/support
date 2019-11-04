@@ -111,7 +111,7 @@ class Util
      *
      * @param string|array $patterns
      * @param string       $subject
-     * @param array        &$matches
+     * @param array        $matches
      * @param string       $delimiter
      * @param int          $flags
      * @param int          $offset

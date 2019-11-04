@@ -20,7 +20,7 @@ use UserFrosting\Support\Exception\FileNotFoundException;
 abstract class FileRepositoryLoader
 {
     /**
-     * @var array An array of paths to ultimately load the data from.
+     * @var string[] An array of paths to ultimately load the data from.
      */
     protected $paths = [];
 
@@ -39,24 +39,29 @@ abstract class FileRepositoryLoader
      *
      * @param string $path
      *
-     * @return array
+     * @return mixed[]
      */
-    abstract protected function parseFile($path);
+    abstract protected function parseFile(string $path): array;
 
     /**
      * Fetch and recursively merge in content from all file paths.
      *
      * @param bool $skipMissing
      *
-     * @return array
+     * @return string[]
      */
-    public function load($skipMissing = true)
+    public function load(bool $skipMissing = true): array
     {
         $result = [];
 
         foreach ($this->paths as $path) {
             $contents = $this->loadFile($path, $skipMissing);
             $result = array_replace_recursive($result, $contents);
+
+            // In case `array_replace_recursive` return an error
+            if (is_null($result)) {
+                throw new \Exception("Can't load, array_replace_recursive returned null");
+            }
         }
 
         return $result;
@@ -70,9 +75,9 @@ abstract class FileRepositoryLoader
      *
      * @throws FileNotFoundException
      *
-     * @return array
+     * @return mixed[]
      */
-    public function loadFile($path, $skipMissing = true)
+    public function loadFile(string $path, $skipMissing = true): array
     {
         if (!file_exists($path)) {
             if ($skipMissing) {
@@ -97,7 +102,7 @@ abstract class FileRepositoryLoader
      *
      * @return bool
      */
-    protected function isReadable($path)
+    protected function isReadable(string $path): bool
     {
         return is_readable($path);
     }
@@ -107,7 +112,7 @@ abstract class FileRepositoryLoader
      *
      * @param string $path
      */
-    public function addPath($path)
+    public function addPath(string $path): self
     {
         $this->paths[] = rtrim($path, '/\\');
 
@@ -119,7 +124,7 @@ abstract class FileRepositoryLoader
      *
      * @param string $path
      */
-    public function prependPath($path)
+    public function prependPath($path): self
     {
         array_unshift($this->paths, rtrim($path, '/\\'));
 
@@ -131,7 +136,7 @@ abstract class FileRepositoryLoader
      *
      * @param string|string[] $paths
      */
-    public function setPaths($paths)
+    public function setPaths($paths): self
     {
         if (!is_array($paths)) {
             $paths = [$paths];
@@ -149,9 +154,9 @@ abstract class FileRepositoryLoader
     /**
      * Return a list of all file paths.
      *
-     * @return array
+     * @return string[]
      */
-    public function getPaths()
+    public function getPaths(): array
     {
         return $this->paths;
     }
