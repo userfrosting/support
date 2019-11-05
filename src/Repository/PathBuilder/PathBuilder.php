@@ -46,5 +46,5 @@ abstract class PathBuilder
      *
      * @return array
      */
-    abstract public function buildPaths(): array;
+    abstract public function buildPaths();
 }
