@@ -8,6 +8,8 @@
  * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
 
+namespace UserFrosting\Support\Tests\Repository;
+
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Support\Exception\FileNotFoundException;
 use UserFrosting\Support\Exception\JsonException;
@@ -186,6 +188,62 @@ class RepositoryLoaderTest extends TestCase
 
         // Act
         $data = $loader->load();
+    }
+
+    /**
+     * Make sure an empty file doesn't mess up by returning null.
+     *
+     * @depends testYamlFileLoader
+     * @depends testYamlFileLoaderWithStringPath
+     */
+    public function testYamlFileLoaderWithNoFileContent()
+    {
+        $loader = new YamlFileLoader(__DIR__.'/data/core/owls/empty.yaml');
+
+        // Act
+        $data = $loader->load();
+
+        $this->assertEquals([], $data);
+    }
+
+    /**
+     * Make sure an empty file doesn't mess up by returning null.
+     *
+     * @depends testYamlFileLoaderWithNoFileContent
+     */
+    public function testYamlFileLoaderWithNoFileContentOnFirstFile()
+    {
+        $loader = new YamlFileLoader([
+            __DIR__.'/data/core/owls/empty.yaml',
+            __DIR__.'/data/core/owls/tyto.yaml',
+        ]);
+
+        // Act
+        $data = $loader->load();
+
+        $this->assertEquals([
+            'plumage' => 'floofy',
+        ], $data);
+    }
+
+    /**
+     * Make sure an empty file doesn't mess up by returning null.
+     *
+     * @depends testYamlFileLoaderWithNoFileContent
+     */
+    public function testYamlFileLoaderWithNoFileContentOnSecondFile()
+    {
+        $loader = new YamlFileLoader([
+            __DIR__.'/data/core/owls/tyto.yaml',
+            __DIR__.'/data/core/owls/empty.yaml',
+        ]);
+
+        // Act
+        $data = $loader->load();
+
+        $this->assertEquals([
+            'plumage' => 'floofy',
+        ], $data);
     }
 
     /**

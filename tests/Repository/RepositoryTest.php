@@ -8,6 +8,8 @@
  * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
 
+namespace UserFrosting\Support\Tests\Repository;
+
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Support\Repository\Repository;
 
@@ -66,6 +68,23 @@ class RepositoryTest extends TestCase
     }
 
     /**
+     * @depends testGetDefined
+     */
+    public function testGetDefinedWithArray()
+    {
+        $repo = new Repository($this->data);
+
+        $defined = $repo->getDefined(['chicks', 'voles']);
+
+        $this->assertEquals([
+            'chicks' => 4,
+            'voles'  => [
+                'caught' => 8,
+            ],
+        ], $defined);
+    }
+
+    /**
      * @depends testGetDefinedWithString
      */
     public function testMergeItems()
@@ -94,5 +113,22 @@ class RepositoryTest extends TestCase
         $defined = $repo->getDefined('voles');
 
         $this->assertEquals($newData, $defined);
+    }
+
+    /**
+     * @depends testGetDefinedWithString
+     */
+    public function testMergeItemsWithNull()
+    {
+        $repo = new Repository($this->data);
+
+        $newData = [
+            'foo'    => 'bar',
+        ];
+
+        $repo->mergeItems(null, $newData);
+        $defined = $repo->getDefined('foo');
+
+        $this->assertEquals('bar', $defined);
     }
 }

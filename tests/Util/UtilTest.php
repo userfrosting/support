@@ -8,6 +8,8 @@
  * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
 
+namespace UserFrosting\Support\Tests\Util;
+
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Support\Util\Util;
 

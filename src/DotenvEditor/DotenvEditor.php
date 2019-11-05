@@ -50,7 +50,7 @@ class DotenvEditor extends Editor
     /**
      * Load file for working.
      *
-     * @param string|null $filePath          The file path
+     * @param string      $filePath          The file path
      * @param bool        $restoreIfNotFound Restore this file from other file if it's not found
      * @param string|null $restorePath       The file path you want to restore from
      *
@@ -58,6 +58,11 @@ class DotenvEditor extends Editor
      */
     public function load($filePath = null, $restoreIfNotFound = false, $restorePath = null)
     {
+        //Fail if path is null to maintain compatibility with Jackiedo\DotenvEditor
+        if (is_null($filePath)) {
+            throw new \InvalidArgumentException('File path cannot be null');
+        }
+
         $this->resetContent();
         $this->filePath = $filePath;
 
@@ -68,7 +73,9 @@ class DotenvEditor extends Editor
 
             return $this;
         } elseif ($restoreIfNotFound) {
-            return $this->restore($restorePath);
+            $this->restore($restorePath);
+
+            return $this;
         } else {
             return $this;
         }

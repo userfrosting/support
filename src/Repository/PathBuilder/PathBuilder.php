@@ -35,7 +35,7 @@ abstract class PathBuilder
      * @param ResourceLocatorInterface $locator
      * @param string                   $uri
      */
-    public function __construct(ResourceLocatorInterface $locator, $uri)
+    public function __construct(ResourceLocatorInterface $locator, string $uri)
     {
         $this->locator = $locator;
         $this->uri = $uri;
@@ -46,5 +46,5 @@ abstract class PathBuilder
      *
      * @return array
      */
-    abstract public function buildPaths();
+    abstract public function buildPaths(): array;
 }

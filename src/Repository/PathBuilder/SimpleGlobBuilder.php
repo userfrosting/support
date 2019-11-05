@@ -20,9 +20,11 @@ class SimpleGlobBuilder extends PathBuilder
     /**
      * Glob together all file paths in each search path from the locator.
      *
+     * @param string $extension (default 'php')
+     *
      * @return array
      */
-    public function buildPaths($extension = 'php')
+    public function buildPaths(string $extension = 'php'): array
     {
         // Get all paths from the locator that match the uri.
         // Put them in reverse order to allow later files to override earlier files.

@@ -18,9 +18,9 @@ namespace UserFrosting\Support\Repository\Loader;
 class ArrayFileLoader extends FileRepositoryLoader
 {
     /**
-     * @return array
+     * {@inheritdoc}
      */
-    protected function parseFile($path)
+    protected function parseFile(string $path): array
     {
         return require $path;
     }

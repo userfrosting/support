@@ -25,7 +25,7 @@ class YamlFileLoader extends FileRepositoryLoader
     /**
      * {@inheritdoc}
      */
-    protected function parseFile($path)
+    protected function parseFile(string $path): array
     {
         $doc = $this->fileGetContents($path);
         if ($doc === false) {
@@ -42,6 +42,11 @@ class YamlFileLoader extends FileRepositoryLoader
             }
         }
 
+        // In case `Yaml::parse` returns empty data/file
+        if (is_null($result)) {
+            return [];
+        }
+
         return $result;
     }
 
@@ -50,9 +55,9 @@ class YamlFileLoader extends FileRepositoryLoader
      *
      * @param string $path
      *
-     * @return string|bool
+     * @return string|false
      */
-    protected function fileGetContents($path)
+    protected function fileGetContents(string $path)
     {
         return file_get_contents($path);
     }

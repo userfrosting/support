@@ -8,6 +8,8 @@
  * @license   https://github.com/userfrosting/support/blob/master/LICENSE.md (MIT License)
  */
 
+namespace UserFrosting\Support\Tests\DotenvEditor;
+
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Support\DotenvEditor\DotenvEditor;
 
@@ -71,6 +73,16 @@ class DotenvEditorTest extends TestCase
         $editor = new DotenvEditor($this->basePath.'.env-backups/');
         $result = $editor->load($this->basePath.'.fakeEnv');
         $this->assertEquals($editor, $result);
+    }
+
+    /**
+     * @depends testConstructor
+     */
+    public function testLoadPathIsNull()
+    {
+        $editor = new DotenvEditor($this->basePath.'.env-backups/');
+        $this->expectException(\InvalidArgumentException::class);
+        $result = $editor->load();
     }
 
     /**
