@@ -32,8 +32,8 @@ class Repository extends IlluminateRepository
      *
      * @param string|null $key
      * @param mixed       $items
-     * 
-     * @return Repository
+     *
+     * @return self
      */
     public function mergeItems($key, $items): self
     {
