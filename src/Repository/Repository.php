@@ -32,8 +32,10 @@ class Repository extends IlluminateRepository
      *
      * @param string|null $key
      * @param mixed       $items
+     *
+     * @return self
      */
-    public function mergeItems(?string $key, $items): self
+    public function mergeItems($key, $items): self
     {
         $targetValues = Arr::get($this->items, $key);
 
