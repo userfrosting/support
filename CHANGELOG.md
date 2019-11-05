@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [4.3.2]
+- Remove ':array' to restore compatability with ConfigPathBuilder
+
 ## [4.3.1]
 - Improved code quality & type hinting
 - Fixed issue where an empty Yaml file would produce a null. Now returns an empty array
@@ -40,6 +43,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 4.0.0
 - Initial Release
 
+[4.3.2]: https://github.com/userfrosting/support/compare/4.3.1...4.3.2
 [4.3.1]: https://github.com/userfrosting/support/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/userfrosting/support/compare/4.2.1...4.3.0
 [4.2.1]: https://github.com/userfrosting/support/compare/4.2.0...4.2.1
