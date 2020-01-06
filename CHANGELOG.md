@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [4.3.4]
 - Added PHP 7.4 to Travis
+- Fix issue with test data
 
 ## [4.3.3]
 - Remove '?string' in `UserFrosting\Support\Repository:mergeItems()` method to restore compatability with RequestSchemaInterface.
