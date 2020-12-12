@@ -33,7 +33,7 @@ class RepositoryLoaderTest extends TestCase
         'chicks'  => 4,
     ];
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->basePath = __DIR__.'/data';
         $this->locator = new ResourceLocator($this->basePath);
