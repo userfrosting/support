@@ -10,6 +10,7 @@
 
 namespace UserFrosting\Support\Tests\DotenvEditor;
 
+use Jackiedo\DotenvEditor\Exceptions\FileNotFoundException;
 use PHPUnit\Framework\TestCase;
 use UserFrosting\Support\DotenvEditor\DotenvEditor;
 
@@ -27,10 +28,10 @@ class DotenvEditorTest extends TestCase
 
     /**
      * @depends testConstructor
-     * @expectedException \Jackiedo\DotenvEditor\Exceptions\FileNotFoundException
      */
     public function testBackupException()
     {
+        $this->expectException(FileNotFoundException::class);
         new DotenvEditor($this->basePath.'backups/');
     }
 

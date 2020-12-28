@@ -15,12 +15,12 @@
 [Support]: https://github.com/userfrosting/support
 [support-develop]: https://github.com/userfrosting/support/tree/develop
 [support-version]: https://img.shields.io/github/release/userfrosting/support.svg
-[support-master-build]: https://travis-ci.org/userfrosting/support.svg?branch=master
+[support-master-build]: https://github.com/userfrosting/support/workflows/Build/badge.svg?branch=master
 [support-master-codecov]: https://codecov.io/gh/userfrosting/support/branch/master/graph/badge.svg
-[support-develop-build]: https://travis-ci.org/userfrosting/support.svg?branch=develop
+[support-develop-build]: https://github.com/userfrosting/support/workflows/Build/badge.svg?branch=develop
 [support-develop-codecov]: https://codecov.io/gh/userfrosting/support/branch/develop/graph/badge.svg
 [support-releases]: https://github.com/userfrosting/support/releases
-[support-travis]: https://travis-ci.org/userfrosting/support
+[support-travis]: https://github.com/userfrosting/support/actions
 [support-codecov]: https://codecov.io/gh/userfrosting/support
 [support-style-master]: https://github.styleci.io/repos/60137523/shield?branch=master&style=flat
 [support-style-develop]: https://github.styleci.io/repos/60137523/shield?branch=develop&style=flat
