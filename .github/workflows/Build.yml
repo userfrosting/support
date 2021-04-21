@@ -15,8 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         php_versions: ['7.1', '7.2', '7.3', '7.4']
+        URI_versions: ['4.2.3', '4.3.4', '4.4.3', '4.5.0']
 
-    name: PHPUnit Tests - ${{ matrix.php_versions }}
+    name: PHPUnit Tests - ${{ matrix.php_versions }} - ${{ matrix.URI_versions }}
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +31,9 @@ jobs:
         coverage: xdebug
         tools: pecl
 
+    - name: Set Dependency version
+      run: composer require "userfrosting/uniformresourcelocator:${{ matrix.URI_versions }}" --no-update
+    
     - name: Install Dependencies
       run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
